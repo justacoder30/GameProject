@@ -18,7 +18,7 @@ namespace GameProject
 
         public void Draw()
         {
-            Globals.SpriteBatch.Draw(_texture, _position, null, Color.White, 0f, _origin, 1f, SpriteEffects.None, 0f);
+            Globals.SpriteBatch.Draw(_texture, _position, Color.White);
         }
     }
 }

@@ -1,3 +1,3 @@
 ﻿
-using var game = new GameProject.Knight();
+using var game = new GameProject.Hero();
 game.Run();

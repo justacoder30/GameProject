@@ -6,7 +6,7 @@ namespace GameProject
 {
     public class Player : Sprites
     {
-        const float Speed = 400f;
+        const float Speed = 800f;
         private Vector2 Velocity;
 
         public Player(Texture2D texture, Vector2 position) : base(texture, position)

@@ -4,14 +4,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace GameProject
 {
-    public class Knight : Game
+    public class Hero : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
         private EntityManager _entityManager;
 
-        public Knight()
+        public Hero()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -22,7 +22,7 @@ namespace GameProject
         {
             // TODO: Add your initialization logic here
 
-            Globals.WindowSize = new(1280, 720);
+            Globals.WindowSize = new(1920, 1080);
             _graphics.PreferredBackBufferWidth = Globals.WindowSize.X;
             _graphics.PreferredBackBufferHeight = Globals.WindowSize.Y;
             _graphics.ApplyChanges();
