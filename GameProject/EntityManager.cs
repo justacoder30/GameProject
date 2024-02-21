@@ -27,8 +27,8 @@ namespace GameProject
             _render.Activate();
 
             Globals.SpriteBatch.Begin();
-            _player.Draw();
             _map1.Draw();
+            _player.Draw();
             Globals.SpriteBatch.End();
 
             _render.Draw();
