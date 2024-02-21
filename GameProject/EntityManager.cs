@@ -10,7 +10,7 @@ namespace GameProject
 
         public EntityManager()
         {
-            _player = new(Globals.Content.Load<Texture2D>("player"), new(0, 0));
+            _player = new(Globals.Content.Load<Texture2D>("player"), new(Globals.WindowSize.X/2, Globals.WindowSize.Y/2));
         }
 
         public void Update()

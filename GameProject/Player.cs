@@ -24,7 +24,7 @@ namespace GameProject
             if (State.IsKeyDown(Keys.A)) Velocity.X--;
             if (State.IsKeyDown(Keys.D)) Velocity.X++;
 
-            
+            if(Velocity!=Vector2.Zero) Velocity.Normalize();
         }
 
         public void Update()
