@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace GameProject
 {
@@ -13,10 +11,11 @@ namespace GameProject
 
         public EntityManager()
         {
+            _render = new Renderer();
             _player = new(Globals.Content.Load<Texture2D>("hero"), new(Globals.WindowSize.X/2, Globals.WindowSize.Y/2));
             _map1 = new Map();
-            _render = new Renderer();
             _camera = new Camera();
+            _render.SetResolution(1920, 1080);
         }
 
         public void Update()

@@ -6,7 +6,8 @@ namespace GameProject
 {
     public class Map
     {
-        private Sprites[,] maptiles;
+        public static float MapWidth;
+        public static float MapHeight;
         public static int TILES_SIZE = 128;
         Texture2D texture;
 
@@ -36,8 +37,8 @@ namespace GameProject
 
         public Map()
         {
-            maptiles = new Sprites[_tiles.GetLength(0), _tiles.GetLength(1)];
-
+            MapWidth = _tiles.GetLength(1) * TILES_SIZE;
+            MapHeight = _tiles.GetLength(0) * TILES_SIZE;
             texture = Globals.Content.Load<Texture2D>("tile1");
 
         }
