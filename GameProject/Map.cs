@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SharpDX.Direct3D9;
 
 namespace GameProject
 {
@@ -49,7 +48,7 @@ namespace GameProject
             {
                 for (int y = 0; y < _tiles.GetLength(1); y++)
                 {
-                    if (_tiles[x, y] == 1) Globals.SpriteBatch.Draw(texture, new Vector2(x * TILES_SIZE, y * TILES_SIZE), Color.White); 
+                    if (_tiles[x, y] == 1) Globals.SpriteBatch.Draw(texture, new Vector2(y * TILES_SIZE, x * TILES_SIZE), Color.White); 
                 }
             }
         }
