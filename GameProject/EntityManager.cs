@@ -21,6 +21,7 @@ namespace GameProject
 
         public void Update()
         {
+            InputManager.Update();
             _player.Update();
             _camera.FolowPLayer(_player);
         }
