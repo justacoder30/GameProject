@@ -43,11 +43,8 @@ namespace GameProject
         public static void FullScreenToggle()
         {
             FullScreen = !FullScreen;
-            Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X;
-            Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y;
             Globals.Graphics.IsFullScreen = FullScreen;
             Globals.Graphics.ApplyChanges();
-            SetDestinationRectangle();
         }
 
         public void Activate()
