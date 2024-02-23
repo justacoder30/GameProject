@@ -39,7 +39,7 @@ namespace GameProject
             //Velocity.Y += Gravity * Globals.Time;
         }
 
-        private void UpdatePosition()
+        public void UpdatePosition()
         {
             _onground = false;
             var newPos = _position + (Velocity * Globals.Time);
