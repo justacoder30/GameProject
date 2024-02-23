@@ -46,6 +46,14 @@ namespace GameProject
             MapHeight = _tiles.GetLength(0) * TILES_SIZE;
             texture = Globals.Content.Load<Texture2D>("tile1");
 
+            for(int i=0; i < _tiles.GetLength(0); i++)
+            {
+                for(int j=0; j < _tiles.GetLength(1); j++)
+                {
+                    if (_tiles[i, j] != 0) 
+                        Colliders[i, j] = new Rectangle(j * TILES_SIZE, i * TILES_SIZE, TILES_SIZE, TILES_SIZE);
+                }
+            }
         }
 
         public static List<Rectangle> GetNearestColliders(Rectangle bounds)

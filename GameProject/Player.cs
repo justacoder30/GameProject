@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SharpDX.MediaFoundation;
 
 namespace GameProject
 {
@@ -10,7 +9,7 @@ namespace GameProject
         const float Speed = 800f;
         const float Jump = 1500f;
         const float Gravity = 4000f;
-        private bool _onground = true;
+        private bool _onground;
         private const int OFFSET = 10;
         private Vector2 Velocity;
 
@@ -27,16 +26,14 @@ namespace GameProject
         {
             KeyboardState State = Keyboard.GetState();  
            
-            Velocity = Vector2.Zero;
+            Velocity.X = 0;
 
             if (State.IsKeyDown(Keys.A)) Velocity.X = -Speed;
             if (State.IsKeyDown(Keys.D)) Velocity.X = +Speed;
-            if (State.IsKeyDown(Keys.W)) Velocity.Y = -Speed;
-            if (State.IsKeyDown(Keys.S)) Velocity.Y = +Speed;
 
-            //if(State.IsKeyDown(Keys.Space) && _onground) Velocity.Y = -Jump;
+            if(State.IsKeyDown(Keys.Space) && _onground) Velocity.Y = -Jump;
 
-            //Velocity.Y += Gravity * Globals.Time;
+            Velocity.Y += Gravity * Globals.Time;
         }
 
         public void UpdatePosition()
