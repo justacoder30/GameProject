@@ -6,14 +6,11 @@ namespace GameProject
 {
     public class Hero : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-
         private EntityManager _entityManager;
 
         public Hero()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            Globals.Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -23,11 +20,11 @@ namespace GameProject
             // TODO: Add your initialization logic here
 
             Globals.WindowSize = new(1920, 1080);
-            _graphics.PreferredBackBufferWidth = Globals.WindowSize.X;
-            _graphics.PreferredBackBufferHeight = Globals.WindowSize.Y;
-            _graphics.ApplyChanges();
+            Globals.Graphics.PreferredBackBufferWidth = Globals.WindowSize.X;
+            Globals.Graphics.PreferredBackBufferHeight = Globals.WindowSize.Y;
+            Globals.Graphics.ApplyChanges();
 
-            Globals.Graphics = _graphics;
+
             Globals.Content = Content;
             _entityManager = new EntityManager();
 
@@ -36,11 +33,10 @@ namespace GameProject
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here    
 
-            Globals.SpriteBatch = _spriteBatch;
         }
 
         protected override void Update(GameTime gameTime)

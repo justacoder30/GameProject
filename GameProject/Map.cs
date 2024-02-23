@@ -1,6 +1,8 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using System;
 
 namespace GameProject
 {
@@ -35,12 +37,40 @@ namespace GameProject
             { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
         };
 
+        private static Rectangle[,] Colliders { get; } = new Rectangle[_tiles.GetLength(0), _tiles.GetLength(1)];
+
+
         public Map()
         {
             MapWidth = _tiles.GetLength(1) * TILES_SIZE;
             MapHeight = _tiles.GetLength(0) * TILES_SIZE;
             texture = Globals.Content.Load<Texture2D>("tile1");
 
+        }
+
+        public static List<Rectangle> GetNearestColliders(Rectangle bounds)
+        {
+            int leftTile = (int)Math.Floor((float)bounds.Left / TILES_SIZE);
+            int rightTile = (int)Math.Ceiling((float)bounds.Right / TILES_SIZE) - 1;
+            int topTile = (int)Math.Floor((float)bounds.Top / TILES_SIZE);
+            int bottomTile = (int)Math.Ceiling((float)bounds.Bottom / TILES_SIZE) - 1;
+
+            leftTile = MathHelper.Clamp(leftTile, 0, _tiles.GetLength(1));
+            rightTile = MathHelper.Clamp(rightTile, 0, _tiles.GetLength(1));
+            topTile = MathHelper.Clamp(topTile, 0, _tiles.GetLength(0));
+            bottomTile = MathHelper.Clamp(bottomTile, 0, _tiles.GetLength(0));
+
+            List<Rectangle> result = new();
+
+            for (int x = topTile; x <= bottomTile; x++)
+            {
+                for (int y = leftTile; y <= rightTile; y++)
+                {
+                    if (_tiles[x, y] != 0) result.Add(Colliders[x, y]);
+                }
+            }
+
+            return result;
         }
 
         public void Draw()
