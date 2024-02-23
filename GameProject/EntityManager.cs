@@ -27,14 +27,14 @@ namespace GameProject
 
         public void Draw()
         {
-            //_render.Activate();
+            _render.Activate();
 
             Globals.SpriteBatch.Begin(transformMatrix: _camera.Translation);
             _map1.Draw();
             _player.Draw();
             Globals.SpriteBatch.End();
 
-            //_render.Draw();
+            _render.Draw();
         }
     }
 }
